@@ -12,6 +12,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,6 +38,7 @@ public class Entreprise {
 	private Integer effectif;
 	
 	@OneToMany(mappedBy = "entreprise")
+	@JsonIgnore
 	private Set<Personne> lstcontacts = new HashSet<>();
 
 	public Entreprise(String nom, Integer effectif) {
